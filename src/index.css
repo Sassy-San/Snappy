@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  overflow-x: hidden;
+}
+
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 149, 135, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 149, 135, 0.8);
+  }
+}
+
+@keyframes glow-fade {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 8px 2px #fff, 0 0 16px 4px #FF9587, 0 0 24px 8px #a78bfa;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 24px 8px #fff, 0 0 32px 16px #FF9587, 0 0 48px 24px #a78bfa;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes twinkle-sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px #FFD700);
+  }
+  20% {
+    opacity: 0.7;
+    transform: scale(1.1) rotate(10deg);
+  }
+  40% {
+    opacity: 0.4;
+    transform: scale(0.9) rotate(-10deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.15) rotate(5deg);
+  }
+  80% {
+    opacity: 0.6;
+    transform: scale(0.95) rotate(-5deg);
+  }
+}
+.twinkle-star {
+  display: inline-block;
+  font-size: 1.5rem;
+  animation: twinkle-sparkle 7s infinite ease-in-out;
+  color: #FFD700;
+  filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px #FFD700);
+  pointer-events: none;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-glow-fade {
+  animation: glow-fade 3s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 7s infinite ease-in-out;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF9587, #8B5CF6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #FF9587, #A855F7);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 149, 135, 0.3);
+  color: white;
+}
+
+/* Focus styles */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea {
+  transition: all 0.3s ease;
+}
+
+/* Custom gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #FF9587, #8B5CF6, #06dd83);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-outline-gradient {
+  color: transparent;
+  background: none;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: transparent;
+  text-stroke-width: 3px;
+  text-stroke-color: transparent;
+  position: relative;
+}
+.hero-outline-gradient::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(90deg, #FF3C3C, #A259F7, #00C3FF);
+  -webkit-background-clip: text;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: transparent;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px #A259F7);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@keyframes fade-in-heading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-in-heading {
+  animation: fade-in-heading 0.8s ease-out;
+}
