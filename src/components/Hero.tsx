@@ -67,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
             <span>LinkedIn</span>
           </a>
           <a
-            href="https://github.com/Sa-nya06"
+            href="https://github.com/Sassy-San"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center space-x-3 px-8 py-4 rounded-full border-2 border-[#FF9587] bg-transparent text-white font-medium hover:bg-gradient-to-r hover:from-[#FF9587] hover:to-purple-500 hover:border-transparent transition-all duration-300 hover:shadow-lg hover:shadow-[#FF9587]/25 hover:scale-105"
